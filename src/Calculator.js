@@ -23,6 +23,9 @@ class Calculator extends Component {
             try {
                 const evalResult = eval(equation);
                 const result = Number.isInteger(evalResult) ? evalResult : evalResult.toFixed(2);
+                if (result === 'Infinity') {
+                    throw 'You can\'t divide by zero!';
+                }
                 this.setState({result})
             } catch (error) {
                 alert('Please enter a valid mathematical equation.');
